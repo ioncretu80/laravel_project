@@ -18,3 +18,5 @@ Route::get('/', function () {
     return "aaaaaaaaaaabbbbb";
 
 });
+
+Route::get('/myerste','MyErsteController@index');
