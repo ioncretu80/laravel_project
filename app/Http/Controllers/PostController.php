@@ -10,6 +10,6 @@ class PostController extends Controller
     //
     public function index(){
         $posts = Post::find(1);
-        dd("in index");
+        dd($posts);
     }
 }
