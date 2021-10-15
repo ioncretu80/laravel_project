@@ -20,3 +20,6 @@ Route::get('/', function () {
 });
 
 Route::get('/myerste','MyErsteController@index');
+
+
+Route::get('/posts','PostController@index');
