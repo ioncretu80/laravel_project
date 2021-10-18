@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     //
     public function index(){
-        $posts = Post::find(1);
-        dd($posts);
+        $post = Post::find(1);
+        dd($post->content);
     }
 }
