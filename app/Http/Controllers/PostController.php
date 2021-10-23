@@ -7,6 +7,21 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
+
+    public function create(){
+        $obj =[
+            "title"=>"titlu_nou",
+            "content"=>"content_nou",
+            "image"=>"image_nou",
+            "likes"=>50,
+            "is_publisched"=>1,
+
+        ];
+
+        Post::create($obj);
+
+        dd("create");
+    }
     //
     public function index(){
        echo("fiind(1)");

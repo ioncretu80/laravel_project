@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-  //  return view('welcome');
-    return "aaaaaaaaaaabbbbb";
+    return view('welcome');
+  //  return "aaaaaaaaaaabbbbb";
 
 });
 
@@ -23,3 +23,4 @@ Route::get('/myerste','MyErsteController@index');
 
 
 Route::get('/posts','PostController@index');
+Route::get('/posts/create','PostController@create');
