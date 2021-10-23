@@ -8,6 +8,21 @@ use App\Models\Post;
 class PostController extends Controller
 {
 
+    public function update(){
+
+        $obj =[
+            "title"=>"titlu_nou_updated",
+            "content"=>"content_nou_updated",
+            "image"=>"image_nou_updated",
+            "likes"=>50,
+            "is_publisched"=>1,
+
+        ];
+        $post = Post::find(3);
+        $post->update($obj);
+        dd("updated");
+
+    }
     public function create(){
         $obj =[
             "title"=>"titlu_nou",
