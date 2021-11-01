@@ -1,6 +1,6 @@
 @extends("layouts.main")
 @section("content")
 <div>
-   post page
+   abaut page
 </div>
 @endsection
