@@ -7,7 +7,40 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
+    public function updateOrCreate(){
+        Post::updateOrCreate([
+            "title"=>"titlu_nou"
+        ],
+            [
+                "title"=>"updateOrCreate",
+                "content"=>"updateOrCreate",
+                "image"=>"updateOrCreate",
+                "likes"=>501,
+                "is_publisched"=>1,
+            ]);
+        dump("updateOrCreate");
+    }
 
+    public function firstOrCreate(){
+      $x=  Post::firstOrCreate([
+            "title"=>"titlu_nou_first_or_create"
+        ],
+            [
+                "title"=>"titlu_nou_first_or_create",
+                "content"=>"content_nou1",
+                "image"=>"image_nou1",
+                "likes"=>501,
+                "is_publisched"=>1,
+
+        ]);
+
+        dd($x->id);
+    }
+    public function delete(){
+        $post = Post::find(6);
+        $post->delete();
+            dd("deleted");
+    }
     public function update(){
 
         $obj =[
@@ -24,16 +57,30 @@ class PostController extends Controller
 
     }
     public function create(){
-        $obj =[
-            "title"=>"titlu_nou",
-            "content"=>"content_nou",
-            "image"=>"image_nou",
-            "likes"=>50,
-            "is_publisched"=>1,
+        $objects =[
+            [
+                "title"=>"titlu_nou",
+                "content"=>"content_nou",
+                "image"=>"image_nou",
+                "likes"=>50,
+                "is_publisched"=>1,
+            ],
+            [
+                "title"=>"titlu_nou1",
+                "content"=>"content_nou1",
+                "image"=>"image_nou1",
+                "likes"=>501,
+                "is_publisched"=>1,
+            ],
+
+
 
         ];
 
-        Post::create($obj);
+        foreach ($objects as $obj){
+
+            Post::create($obj);
+        }
 
         dd("create");
     }
