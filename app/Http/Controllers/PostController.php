@@ -41,48 +41,58 @@ class PostController extends Controller
         $post->delete();
             dd("deleted");
     }
-    public function update(){
 
-        $obj =[
-            "title"=>"titlu_nou_updated",
-            "content"=>"content_nou_updated",
-            "image"=>"image_nou_updated",
-            "likes"=>50,
-            "is_publisched"=>1,
+    public function destroy(Post $post){
 
-        ];
-        $post = Post::find(3);
-        $post->update($obj);
-        dd("updated");
+        $post->delete();
+        return redirect()->route("post.index");
+    }
+
+    public function update(Post $post){
+        $data = request()->validate(
+            [
+                "title"=>"string",
+                "content"=>"string",
+                "image"=>"string",
+                //   "likes"=>"integer"
+            ]
+        );
+
+       $result =$post->update($data);
+
+        return redirect()->route("post.show",$post->id);
+    }
+
+    public function show(Post $post){
+
+        return view("post.show",compact("post"));
 
     }
+    public function edit(Post $post){
+
+        return view("post.edit",compact("post"));
+
+    }
+
+
+
+
+    public function store(){
+
+        $data = request()->validate(
+            [
+                "title"=>"string",
+                "content"=>"string",
+                "image"=>"string",
+             //   "likes"=>"integer"
+            ]
+        );
+        Post::create($data);
+        return redirect()->route("post.index");
+    }
+
     public function create(){
-        $objects =[
-            [
-                "title"=>"titlu_nou",
-                "content"=>"content_nou",
-                "image"=>"image_nou",
-                "likes"=>50,
-                "is_publisched"=>1,
-            ],
-            [
-                "title"=>"titlu_nou1",
-                "content"=>"content_nou1",
-                "image"=>"image_nou1",
-                "likes"=>501,
-                "is_publisched"=>1,
-            ],
-
-
-
-        ];
-
-        foreach ($objects as $obj){
-
-            Post::create($obj);
-        }
-
-        dd("create");
+      return view("post.create");
     }
     //
     public function index(){

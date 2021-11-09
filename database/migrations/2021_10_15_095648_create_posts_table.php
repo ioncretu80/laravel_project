@@ -18,8 +18,8 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('image');
-            $table->unsignedBigInteger('likes')->nulable();
-            $table->boolean('is_publisched')->default(1);
+            $table->unsignedBigInteger('likes')->nullable();
+            $table->boolean('is_published')->default(1);
             $table->timestamps();
 
             $table->softDeletes();
