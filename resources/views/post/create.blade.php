@@ -19,9 +19,24 @@
 {{--            <label for="likes" >Likes</label>--}}
 {{--            <input type="text" class="form-control" id="likes" name="likes" placeholder="Likes">--}}
 {{--        </div>--}}
+        <div class="form-group">
+            <label for="category_id">Category</label>
+            <select class="form-control" id="category_id" name="category_id">
 
+               @foreach ($categories as $category)
+                <option value="{{$category->id}}">{{$category->title}}</option>
+                @endforeach
+            </select>
 
+        </div>
 
+        <div class="form-group">
+            <select class="form-select" multiple aria-label="multiple select example" name="tags[]">
+                @foreach($tags as $tag)
+                <option value="{{$tag->id}}">{{$tag->title}}</option>
+                @endforeach
+            </select>
+        </div>
 
         <button type="submit" class="btn btn-primary">Create</button>
     </form>

@@ -20,6 +20,17 @@
 {{--            <label for="likes" >Likes</label>--}}
 {{--            <input type="text" class="form-control" id="likes" name="likes" placeholder="Likes">--}}
 {{--        </div>--}}
+        <div class="form-group">
+            <label for="category_id">Category</label>
+            <select class="form-control" id="category_id" name="category_id">
+
+                @foreach ($categories as $category)
+                    <option
+                        {{$category->id == $post->category_id ? "selected" : ""}}
+                        value="{{$category->id}} ">{{$category->title}}</option>
+                @endforeach
+            </select>
+        </div>
 
 
 
