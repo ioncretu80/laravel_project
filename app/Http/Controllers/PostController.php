@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use App\Models\PostTag;
+use App\Models\Post;
+
 use App\Models\Tag;
 use Illuminate\Http\Request;
-use App\Models\Post;
+
 
 class PostController extends Controller
 {
@@ -122,6 +123,12 @@ class PostController extends Controller
     //
     public function index()
     {
+        $post = Post::find(3);
+        $category = Category::find(2);
+
+        $tag = Tag::find(1);
+        dd($post->tags);
+
         $posts = Post::all();
         return view("post.index", compact("posts"));
     }
