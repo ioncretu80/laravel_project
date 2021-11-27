@@ -23,7 +23,6 @@ class PostController extends Controller
                 "likes" => 501,
                 "is_publisched" => 1,
             ]);
-        dump("updateOrCreate");
     }
 
     public function firstOrCreate()
