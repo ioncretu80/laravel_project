@@ -14,7 +14,7 @@
 <div class="container-md" >
 
     <h1>upss...</h1>
-    <img src="/images/dev.jpg" class="img-fluid" alt="...">
+    <img src="images/dev.jpg" class="img-fluid" alt="...">
 
 </div>
 <!-- Optional JavaScript; choose one of the two! -->
